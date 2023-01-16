@@ -29,3 +29,12 @@ jobs:
           pnpm coverage
       - name: Building
         run: pnpm build
+      - name: Upload Test Report to Codecov
+        run: |
+          curl -Os https://uploader.codecov.io/latest/linux/codecov
+          chmod +x codecov
+          ./codecov
+      - name: Upload Test Report to Codacy
+        run: |
+          export CODACY_PROJECT_TOKEN=${{secrets.CODACY_TEST_COVERAGE_API_TOKEN}}
+          bash <(curl -Ls https://coverage.codacy.com/get.sh)
