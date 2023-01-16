@@ -31,4 +31,9 @@ class HealthControllerTest {
 
         assertThat(healthStatus).isEqualTo(Status.UP);
     }
+
+    @Test
+    void empty_test() {
+
+    }
 }
